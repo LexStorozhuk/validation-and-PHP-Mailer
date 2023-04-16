@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta name="viewport" content="width=1920"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalabale=0">
+<!-- <meta name="viewport" content="width=1024"> -->
+ <!-- Стандарт -->
+ <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+  </style>
+<link rel="stylesheet" href="css/style.min.css?_v=20230416114101">
+<link rel="stylesheet" href="files/icons.css?_v=20230416114101">
+<title>Shoppe</title>
+  <body>
+
+    <header class="header">
+      <div class="header__wrapper">
+  <div class="header__container _container">
+    <div class="header__body">
+      <div class="header__main">
+        <a href="#" class="header__log"> Nikolas</a>
+      <div class="header__menu menu">
+          <nav class="menu__body">
+            <ul data-spollers="768,max" data-one-spoller  class="menu__list">
+              <li class="menu__item">
+                <a href="" class="menu__link"> products </a>
+                <button tabindex="-1" data-spoller  type="submit" class="menu__arrow _icon-arrow-right"></button>
+                <ul class="menu__sub-list">
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link"> Product #1</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link"> Product #2</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link"> Product #3</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link"> Product #4</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item">
+                <a href="" class="menu__link">rooms</a>
+                <button tabindex="-1" data-spoller type="submit" class="menu__arrow _icon-arrow-right"></button>
+                <ul class="menu__sub-list">
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link">Product #1</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link">Product #2</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link">Product #3</a>
+                  </li>
+                  <li class="menu__sub-item">
+                    <a href="#" class="menu__sub-link">Product #4</a>
+                  </li>
+                </ul>
+              </li>
+              <li  class="menu__item">
+                <a href="" class="menu__link"> inspiration</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+
+      <div  class="header__search search">
+        <div class="search-form">
+          <button type="button" class="search-form__icon _icon-search"></button>
+          <form action="#" class="search-form__item">
+            <button class="search-form__btn _icon-search"></button>
+            <input
+              autocomplete="off"
+              type="text"
+              name="form[]"
+              placeholder="Search"
+              class="search-form__input"
+            />
+          </form>
+        </div>
+      </div>
+      <div  class="header__actions actions-header">
+        <a
+          href="#"
+          class="actions-header__item actions-header__item_favorites _icon-heart"
+        ></a>
+        <div class="actions-header__item cart-header">
+          <a href="" class="cart-header__icon _icon-shopping-cart">
+            <!-- <span>1</span> -->
+          </a>
+          <div class="cart-header__body">
+            <ul class="cart-header__list cart-list"></ul>
+          </div>
+        </div>
+        <a href="#" class="actions-header__item actions-header__item_user">
+          <picture><source srcset="img/header/avatar.webp" type="image/webp"><img src="img/header/avatar.png" alt="Avatar" /></picture>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div ></div>
+    </header>
+    <main>
+      <div class="wrapper">
+    <div class="form">
+     <form  action="#" id="form" class="form__body">
+        <h1 class="form__title">Sending dates to email</h1>
+        <div class="form__item">
+            <label for="formName" class="form__lable">name*:</label>
+            <input id="formName" type="text" name="name" class="form__input _req">
+        </div>
+        <div class="form__item">
+            <label for="formEmail" class="form__lable ">E-mail*:</label>
+            <input id="formEmail" type="text" name="email" class="form__input _req _email">
+        </div>
+        <div class="form__item">
+            <div class="form__label">Left or right?</div>
+            <div class="options">
+                <div class="options__item">
+                    <input id="formRightHanded" checked type = "radio" value="right" name="hand" class="options__input">
+                    <label for="formRightHanded" class="options__lable"> Right</label>
+                </div>
+                <div class="options__item">
+                    <input id="formLeftHanded" type = "radio" value="left" name="hand" class="options__input">
+                    <label for="formLeftHanded" class="options__lable"> Left</label>
+                </div>
+             </div>
+        </div>
+            <div class="form__item">
+                <lable for="FormMessage" class="form__lable">Message</lable>
+                <textarea name="Message" id="FormMessage" class="form__input"></textarea>
+            </div>
+            <div class="form__item">
+                <div name="age" class="form__lable">Age:</div>
+                <select name="age"class="form__select">
+                    <option value="from 18 to 25">young</option>
+                    <option value="from 25 to 45">old</option>
+                    <option value="from 45">supper old</option>
+                </select>
+            </div>
+                <div class="form__item">
+                    <div class="form__label">Add Photo</div>
+                    <div class="file">
+                        <div class="file__item">
+                            <input id="formImage" accept=".jpj, .png, .gif" type="file" class="file__input"></input>
+                            <div class="file__button">Select</div>
+                        </div>
+                        <div id="formPreview" class="file__preview"></div>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input _req">
+                    <label for="formAgreement" class="checkbox__lable"><span>I give my information for bla bla bla <a href="">properties</a></span> </label>
+                </div>
+                <button id="submitButton"  type="submit" class="form__button"> Submit</button>
+        </form>
+    </div>
+</div>
+  </main>
+      <footer>
+        <footer class="footer">
+  <div class="footer__container _container">
+    <div class="footer__body">
+      <div class="footer__main">
+        <a href="" class="footer__logo _footer-title"> funiro</a>
+        <div class="footer__text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum ipsum
+          est commodi pariatur maiores possimus iste, odio illo quae, doloremque
+          error consequatur placeat eius quo nobis dolorum modi officia iure.
+        </div>
+        <div class="footer__contacts contacts-footer">
+          <a href="" class="contacts-footer__item _icon-location"></a>
+          <a href="tel:+628945634555" class="contacts-footer__item _icon-phone"
+            >+6289 456 3455</a
+          >
+          <a href="#" target="_blank" class="contacts-footer__item"
+            >www.funiro.com</a
+          >
+        </div>
+      </div>
+      <div data-spollers="768,max" class="footer__menu menu-footer">
+        <div class="menu-footer__column">
+          <button
+            type="button"
+            data-spoller
+            class="menu-footer__title _footer-title"
+          >
+            Menu
+          </button>
+          <ul class="menu-footer__list">
+            <li class="menu-footer__link">Products</li>
+            <li class="menu-footer__link">Rooms</li>
+            <li class="menu-footer__link">Inspirations</li>
+            <li class="menu-footer__link">About Us</li>
+            <li class="menu-footer__link">Terms & Policy</li>
+          </ul>
+        </div>
+        <div class="menu-footer__column">
+          <button
+            type="button"
+            data-spoller
+            class="menu-footer__title _footer-title"
+          >
+            Account
+          </button>
+          <ul class="menu-footer__list">
+            <li class="menu-footer__link">My Account</li>
+            <li class="menu-footer__link">Checkout</li>
+            <li class="menu-footer__link">My Cart</li>
+            <li class="menu-footer__link">My Catalog</li>
+          </ul>
+        </div>
+        <div class="menu-footer__column">
+          <button
+            type="button"
+            data-spoller
+            class="menu-footer__title _footer-title"
+          >
+            Stay Conecct
+          </button>
+          <ul class="menu-footer__list">
+            <li class="menu-footer__link">Facebook</li>
+            <li class="menu-footer__link">Instagram</li>
+            <li class="menu-footer__link">Twitter</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__subscribe subscribe">
+        <label for="subscribe" class="subscribe__title _footer-title"
+          >Stay Update</label
+        >
+        <form
+          data-message="subscribe"
+          data-test
+          action="#"
+          class="subscribe__form"
+          enctype="multipart/form-data"
+        >
+          <input
+            id="subscribe"
+            class="subscribe__input _req _email"
+            autocomplete="off"
+            type="text"
+            name="form[]"
+            data-error="error"
+            data-value="Enter your email"
+          />
+          <button type="submit" class="subscribe__button _icon-send"></button>
+        </form>
+        <div id="range"></div>
+        <div id="slider-fit"></div>
+        <div class="slider-styled" id="slider-round"></div>
+        <div class="slider-styled" id="slider-square"></div>
+        <div id="slider-snap-value-lower" class="slider-snap-value-lower"></div>
+        <div id="slider-snap-value-upper" class="slider-snap-value-upper"></div>
+        <div class="overlay">
+        </div>
+        <div class="share">
+          <span class="share__text"> SHARE </span>
+          <ul class="share__ul">
+            <button class="_icon-instagram color"></button>
+            <button class="_icon-linkedin color"></button>
+            <button class="_icon-face-book color"></button>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js?_v=20230416114101"></script>
+      <script src="files/slick.min.js?_v=20230416114101"></script>
+      <!-- <script src="files/validation.js?_v=20230416114101"></script> -->
+      <script src="js/app.min.js?_v=20230416114101"></script>
+      <!-- <script src="js/modules/select.js?_v=20230416114101"></script> -->
+  </body>
+</html>
