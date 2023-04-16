@@ -11,9 +11,9 @@
 	$mail->IsHTML(true);
 
 	//От кого письмо
-	$mail->setFrom('from@gmail.com', 'Фрилансер по жизни'); // Указать нужный E-mail
+	$mail->setFrom('sasha0878@yahoo.com', 'Фрилансер по жизни'); // Указать нужный E-mail
 	//Кому отправить
-	$mail->addAddress('to@gmail.com'); // Указать нужный E-mail
+	$mail->addAddress('sasha0878@yahoo.com'); // Указать нужный E-mail
 	//Тема письма
 	$mail->Subject = 'Привет! Это "Фрилансер по жизни"';
 	// $hand = "right";
