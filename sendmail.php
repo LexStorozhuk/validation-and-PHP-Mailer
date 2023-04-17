@@ -1,57 +1,79 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
+// Файлы phpmailer
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+require 'phpmailer/Exception.php';
 
-	require 'phpmailer/src/Exception.php';
-	require 'phpmailer/src/PHPMailer.php';
+# проверка, что ошибки нет
+if (!error_get_last()) {
 
-	$mail = new PHPMailer(true);
-	$mail->CharSet = 'UTF-8';
-	$mail->setLanguage('ru', 'phpmailer/language/');
-	$mail->IsHTML(true);
+    // Переменные, которые отправляет пользователь
+    $name = $_POST['name'] ;
+    $email = $_POST['email'];
+    $text = $_POST['text'];
+    $file = $_FILES['myfile'];
+    
+    
+    // Формирование самого письма
+    $title = "Заголовок письма";
+    $body = "
+    <h2>Новое письмо</h2>
+    <b>Имя:</b> $name<br>
+    <b>Почта:</b> $email<br><br>
+    <b>Сообщение:</b><br>$text
+    ";
+    
+    // Настройки PHPMailer
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    
+    $mail->isSMTP();   
+    $mail->CharSet = "UTF-8";
+    $mail->SMTPAuth   = true;
+    //$mail->SMTPDebug = 2;
+    $mail->Debugoutput = function($str, $level) {$GLOBALS['data']['debug'][] = $str;};
 
-	//От кого письмо
-	$mail->setFrom('sasha0878@yahoo.com', 'Фрилансер по жизни'); // Указать нужный E-mail
-	//Кому отправить
-	$mail->addAddress('sasha0878@yahoo.com'); // Указать нужный E-mail
-	//Тема письма
-	$mail->Subject = 'Привет! Это "Фрилансер по жизни"';
-	// $hand = "right";
-	// if($_POST['hand'] == "left") {
-	// 	$hand = "left";
-	// }
-	//Тело письма
-	$body = '<h1>Встречайте супер письмо!</h1>';
-
-	//if(trim(!empty($_POST['name']))){
-		//$body.='';
-	//}	
 	
-	/*
-	//Прикрепить файл
-	if (!empty($_FILES['image']['tmp_name'])) {
-		//путь загрузки файла
-		$filePath = __DIR__ . "/files/sendmail/attachments/" . $_FILES['image']['name']; 
-		//грузим файл
-		if (copy($_FILES['image']['tmp_name'], $filePath)){
-			$fileAttach = $filePath;
-			$body.='<p><strong>Фото в приложении</strong>';
-			$mail->addAttachment($fileAttach);
-		}
-	}
-	*/
+    // Настройки вашей почты
+	$mail->Host = ‘smtp.gmail.com’; // SMTP сервер
+    $mail->Username   = 'sasha08788@gmail.com'; // Логин на почте
+    $mail->Password   = 'G23sasha23G'; // Пароль на почте
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port       = 465;
+    $mail->setFrom('sasha08788@gmail.com', 'Олександр Сторожук'); // Адрес самой почты и имя отправителя
+    
+    // Получатель письма
+    $mail->addAddress('sasha0878@yahoo.com');  
+    // $mail->addAddress('poluchatel2@gmail.com'); // Ещё один, если нужен
+    
+    // Прикрипление файлов к письму
+    if (!empty($file['name'][0])) {
+        for ($i = 0; $i < count($file['tmp_name']); $i++) {
+            if ($file['error'][$i] === 0) 
+                $mail->addAttachment($file['tmp_name'][$i], $file['name'][$i]);
+        }
+    }
+    // Отправка сообщения
+    $mail->isHTML(true);
+    $mail->Subject = $title;
+    $mail->Body = $body;    
+    
+    // Проверяем отправленность сообщения
+    if ($mail->send()) {
+        $data['result'] = "success";
+        $data['info'] = "Сообщение успешно отправлено!";
+    } else {
+        $data['result'] = "error";
+        $data['info'] = "Сообщение не было отправлено. Ошибка при отправке письма";
+        $data['desc'] = "Причина ошибки: {$mail->ErrorInfo}";
+    }
+    
+} else {
+    $data['result'] = "error";
+    $data['info'] = "В коде присутствует ошибка";
+    $data['desc'] = error_get_last();
+}
 
-	$mail->Body = $body;
-
-	//Отправляем
-	if (!$mail->send()) {
-		$message = 'Ошибка';
-	} else {
-		$message = 'Данные отправлены!';
-	}
-
-	$response = ['message' => $message];
-
-	header('Content-type: application/json');
-	echo json_encode($response);
+// Отправка результата
+header('Content-Type: application/json');
+echo json_encode($data);
 ?>

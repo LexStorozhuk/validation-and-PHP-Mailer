@@ -10,7 +10,6 @@
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
   </style>
 <link rel="stylesheet" href="css/style.min.css?_v=20230416173458">
-<link rel="stylesheet" href="files/icons.css?_v=20230416173458">
 <title>Shoppe</title>
   <body>
 
@@ -72,7 +71,7 @@
         <div class="search-form">
           <button type="button" class="search-form__icon _icon-search"></button>
           <form action="#" class="search-form__item">
-            <button class="search-form__btn _icon-search"></button>
+            <button type="submit" class="search-form__btn _icon-search"></button>
             <input
               autocomplete="off"
               type="text"
@@ -108,7 +107,7 @@
     <main>
       <div class="wrapper">
     <div class="form">
-     <form  action="#" id="form" class="form__body">
+     <form  action="sendmail.php" method="POST" id="form" class="form__body">
         <h1 class="form__title">Sending dates to email</h1>
         <div class="form__item">
             <label for="formName" class="form__lable">name*:</label>
@@ -243,7 +242,7 @@
         >
           <input
             id="subscribe"
-            class="subscribe__input _req _email"
+            class="subscribe__input _email"
             autocomplete="off"
             type="text"
             name="form[]"
